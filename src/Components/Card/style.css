@@ -20,7 +20,7 @@
     transform: translateY(2px);
 }
 
-.question {
+.question, .answer {
     width: 300px;
     height: 130px;
     background: #FFFFd4;
@@ -31,13 +31,12 @@
     align-items: flex-end;
     justify-content: space-between;
     margin-bottom: 25px;
-    padding: 15px;
-    cursor: pointer;
+    padding: 10px;
 }
 
-.question p {
+.question p, .answer p {
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
 }
 
@@ -46,9 +45,81 @@
 }
 
 .question:hover{
+    cursor: pointer;
     background-color: #e4e4b0;
 }
 
 .question:active{
     transform: translateY(2px);
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button div {
+    width: 85px;
+    height: 37px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.red {
+    background: #FF3030;
+}
+
+.red:hover {
+    background: #ca2424;
+}
+
+.yellow {
+    background: #FF922E;
+}
+
+.yellow:hover {
+    background: #c47125;
+}
+
+.green {
+    background: #2FBE34;
+}
+
+.green:hover {
+    background: #218324;
+}
+
+.cardRed, .cardYellow, .cardGreen {
+    width: 300px;
+    height: 65px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding: 0 15px;
+    text-decoration: line-through;
+}
+
+.cardRed {
+    color: #FF3030;
+}
+
+.cardYellow {
+    color: #FF922E;
+}
+
+.cardGreen {
+    color: #2FBE34;
 }

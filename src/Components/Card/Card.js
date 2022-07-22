@@ -1,6 +1,9 @@
 import './style.css';
 import React from 'react';
 import { BsPlay } from 'react-icons/bs';
+import { AiFillCloseCircle } from 'react-icons/ai';
+import { AiFillQuestionCircle } from 'react-icons/ai';
+import { AiFillCheckCircle } from 'react-icons/ai';
 import Turn from '../assets/img/setinha.png';
 
 export default function Card({ id, question, answer }) {
@@ -27,18 +30,22 @@ export default function Card({ id, question, answer }) {
 
     function Status3() {
         return (
-            <div className='question' onClick={()=>setQuestionStatus(4)}>
+            <div className='answer'>
                 <p>{answer}</p>
-                <img src={Turn} alt='' />
+                <div className='button'>
+                    <div className='red' onClick={()=>setQuestionStatus('red')}>Não lembrei</div>
+                    <div className='yellow' onClick={()=>setQuestionStatus('yellow')}>Quase não lembrei</div>
+                    <div className='green' onClick={()=>setQuestionStatus('green')}>Zap!</div>
+                </div>
             </div>
         )
     }
 
-    function Status4() {
+    function Status({card, icon}) {
         return (
-            <div className='card'>
-                <h2>Pergunta {id} Respondida</h2>
-                <BsPlay size='35px' />
+            <div className={card}>
+                <h2>Pergunta {id}</h2>
+                {icon}
             </div>
         )
     }
@@ -50,7 +57,11 @@ export default function Card({ id, question, answer }) {
             return (<Status2 />);
         case 3:
             return (<Status3 />);
-        case 4:
-            return (<Status4 />);
+        case 'red':
+            return (<Status card={'cardRed'} icon={<AiFillCloseCircle size='25px' />}/>);
+        case 'yellow':
+            return (<Status card={'cardYellow'} icon={<AiFillQuestionCircle size='25px' />}/>);
+        case 'green':
+            return (<Status card={'cardGreen'} icon={<AiFillCheckCircle size='25px' />}/>);
     }
 }
