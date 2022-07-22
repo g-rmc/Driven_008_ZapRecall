@@ -1,6 +1,8 @@
 import './style.css';
+import React from 'react';
 import logo from '../assets/img/logo.png';
 import Card from '../Card/Card';
+import Botom from '../Bottom/Bootom';
 
 export default function Display() {
 
@@ -17,6 +19,8 @@ export default function Display() {
     questions.sort(() => Math.random() - 0.5);
     questions = questions.slice(4);
 
+    const [userAnswers, setUserAnswers] = React.useState([]);
+
     return (
         <div className='page'>
             <div className='head' >
@@ -25,12 +29,12 @@ export default function Display() {
             </div>
 
             <div className='cards'>
-                {questions.map((obj, index) => <Card key={index} id={index+1} question={obj.question} answer={obj.answer}/>)}
+                {questions.map((obj, index) => <Card    key={index} id={index + 1} question={obj.question} answer={obj.answer} 
+                                                        userAnswers={userAnswers} setUserAnswers={setUserAnswers}/>
+                )}
             </div>
             
-            <div className='bottom'>
-                <h2>0/4 CONCLUÍDOS</h2>
-            </div>
+            <Botom userAnswers={userAnswers}/>
         </div>
     )
 }

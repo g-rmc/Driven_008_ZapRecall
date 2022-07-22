@@ -6,7 +6,7 @@ import { AiFillQuestionCircle } from 'react-icons/ai';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import Turn from '../assets/img/setinha.png';
 
-export default function Card({ id, question, answer }) {
+export default function Card({ id, question, answer, userAnswers, setUserAnswers}) {
 
     const [questionStatus, setQuestionStatus] = React.useState(1);
 
@@ -33,9 +33,9 @@ export default function Card({ id, question, answer }) {
             <div className='answer'>
                 <p>{answer}</p>
                 <div className='button'>
-                    <div className='red' onClick={()=>setQuestionStatus('red')}>Não lembrei</div>
-                    <div className='yellow' onClick={()=>setQuestionStatus('yellow')}>Quase não lembrei</div>
-                    <div className='green' onClick={()=>setQuestionStatus('green')}>Zap!</div>
+                    <div className='red' onClick={()=>updateAnswer('red')}>Não lembrei</div>
+                    <div className='yellow' onClick={()=>updateAnswer('yellow')}>Quase não lembrei</div>
+                    <div className='green' onClick={()=>updateAnswer('green')}>Zap!</div>
                 </div>
             </div>
         )
@@ -48,6 +48,12 @@ export default function Card({ id, question, answer }) {
                 {icon}
             </div>
         )
+    }
+
+    function updateAnswer(color){
+        setQuestionStatus(color);
+        userAnswers.push(color);
+        setUserAnswers([...userAnswers]);
     }
 
     switch (questionStatus) {
@@ -63,5 +69,7 @@ export default function Card({ id, question, answer }) {
             return (<Status card={'cardYellow'} icon={<AiFillQuestionCircle size='25px' />}/>);
         case 'green':
             return (<Status card={'cardGreen'} icon={<AiFillCheckCircle size='25px' />}/>);
+        default:
+            return (<>Erro!</>);
     }
 }
