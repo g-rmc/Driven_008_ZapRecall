@@ -1,13 +1,19 @@
+import React from 'react';
+import "./reset.css";
 import "./style.css";
 import Welcome from "../Welcome/Welcome";
+import Display from "../Display/Display";
 
 export default function App () {
 
-    console.log('Hello World');
+    const [start, setStart] = React.useState(false);
 
     return (
-        <>
-            <Welcome />
-        </>
+        <div className='content'>
+            {!start? 
+            <Welcome setStart = {setStart}/> :
+            <Display />
+            }
+        </div>
     )
 }

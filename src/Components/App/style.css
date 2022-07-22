@@ -6,6 +6,17 @@
 }
 
 body {
-    background-color: #FB6B6B;
+    background-color: black;
     font-family: Recursive;
+    font-weight: 700;
+    color: #333333;
+    margin: 0;
+}
+
+.content {
+    background-color: #FB6B6B;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100vh;
 }
