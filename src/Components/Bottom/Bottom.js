@@ -5,7 +5,7 @@ import { AiFillCheckCircle } from 'react-icons/ai';
 import party from '../assets/img/party.png';
 import sad from '../assets/img/sad.png';
 
-export default function Bottom({userAnswers, questions, setStart}){
+export default function Bottom({userAnswers, questions, setStart, zapNumber}){
 
     function Icons({color}){
         
@@ -36,7 +36,7 @@ export default function Bottom({userAnswers, questions, setStart}){
             }
         }
 
-        return (numRed === 0);
+        return (numRed === 0 && numGreen >= zapNumber);
     }
 
     function Positive(){

@@ -19,6 +19,30 @@ h1 {
     margin: 30px 0;
 }
 
+input {
+    width: 246px;
+    height: 43px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 25px;
+    padding-left: 10px;
+    color: #adadad;
+}
+
+.button-freeze {
+    width: 246px;
+    height: 54px;
+    background: #e8e8e8;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c0c0c0;
+    font-size: 18px;
+    font-weight: 400;
+}
+
 .button-start {
     width: 246px;
     height: 54px;
@@ -35,10 +59,10 @@ h1 {
     cursor: pointer;
 }
 
-.button-start:hover{
+.button-start:hover {
     background-color: #dfdfdf;
 }
 
-.button-start:active{
+.button-start:active {
     transform: translateY(2px);
 }

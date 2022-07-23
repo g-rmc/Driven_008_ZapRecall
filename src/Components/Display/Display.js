@@ -4,7 +4,7 @@ import logo from '../assets/img/logo.png';
 import Card from '../Card/Card';
 import Bottom from '../Bottom/Bottom';
 
-export default function Display({setStart}) {
+export default function Display({setStart, zapNumber}) {
 
     let deckReact = [   { question: 'O que é JSX?', answer: 'Uma extensão de linguagem do JavaScript' },
                         { question: 'O React é __', answer: 'uma biblioteca JavaScript para construção de interfaces' },
@@ -34,7 +34,7 @@ export default function Display({setStart}) {
                 )}
             </div>
             
-            <Bottom userAnswers={userAnswers} questions={questions} setStart={setStart}/>
+            <Bottom userAnswers={userAnswers} questions={questions} setStart={setStart} zapNumber={zapNumber}/>
         </div>
     )
 }
