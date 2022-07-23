@@ -2,8 +2,10 @@ import './style.css';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { AiFillQuestionCircle } from 'react-icons/ai';
 import { AiFillCheckCircle } from 'react-icons/ai';
+import party from '../assets/img/party.png';
+import sad from '../assets/img/sad.png';
 
-export default function Botom({userAnswers}){
+export default function Botom({userAnswers, questions}){
 
     function Icons({color}){
         
@@ -19,9 +21,61 @@ export default function Botom({userAnswers}){
         }
     }
 
+    function isGood() {
+        let numRed = 0;
+        let numYellow = 0;
+        let numGreen = 0;
+
+        for (let i = 0; i < userAnswers.length; i++){
+            if (userAnswers[i] === 'red'){
+                numRed++
+            } else if (userAnswers[i] === 'yellow'){
+                numYellow++
+            } else if (userAnswers[i] === 'green'){
+                numGreen++
+            }
+        }
+
+        return (numRed === 0);
+    }
+
+    function Positive(){
+        return (
+            <div className='results'>
+                <span>
+                    <img src={party} alt=''/>
+                    Parabéns
+                </span>
+                Você não esqueceu de<br/>nenhum flashcard!
+            </div>
+        )
+    }
+
+    function Negative(){
+        return (
+            <div className='results'>
+                <span>
+                    <img src={sad} alt=''/>
+                    Putz...
+                </span>
+                Ainda faltam alguns...<br/>Mas não desanime!
+            </div>
+        )
+    }
+
+    function Results() {
+        return (
+        <>
+            {isGood() ? <Positive /> : <Negative />}
+        </>
+        )
+    }
+
     return (
         <div className='bottom'>
-                <h2>{userAnswers.length}/4 CONCLUÍDOS</h2>
+
+                {userAnswers.length === questions.length ? <Results /> : <></>}
+                <h2>{userAnswers.length}/{questions.length} CONCLUÍDOS</h2>
                 <div>
                     {userAnswers.map((color, index) => <Icons key={index} color={color}/>)}
                 </div>
