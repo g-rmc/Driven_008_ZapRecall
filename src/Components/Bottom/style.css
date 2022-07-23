@@ -37,3 +37,25 @@
     width: 23px;
     margin-right: 10px;
 }
+
+.restart {
+    width: 167px;
+    height: 32px;
+    background: #FB6B6B;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 14px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.restart:hover {
+    background-color: #cf5353;
+}
+
+.restart:active {
+    transform: translateY(2px);
+}

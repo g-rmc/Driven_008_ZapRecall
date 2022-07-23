@@ -5,7 +5,7 @@ import { AiFillCheckCircle } from 'react-icons/ai';
 import party from '../assets/img/party.png';
 import sad from '../assets/img/sad.png';
 
-export default function Botom({userAnswers, questions}){
+export default function Bottom({userAnswers, questions, setStart}){
 
     function Icons({color}){
         
@@ -71,6 +71,14 @@ export default function Botom({userAnswers, questions}){
         )
     }
 
+    function Restart() {
+        return(
+            <div className='restart' onClick={() => setStart(false)}>
+                REINICIAR RECALL
+            </div>
+        )
+    }
+
     return (
         <div className='bottom'>
 
@@ -79,6 +87,7 @@ export default function Botom({userAnswers, questions}){
                 <div>
                     {userAnswers.map((color, index) => <Icons key={index} color={color}/>)}
                 </div>
+                {userAnswers.length === questions.length ? <Restart /> : <></>}
         </div>
     )
 }

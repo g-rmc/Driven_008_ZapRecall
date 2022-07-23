@@ -2,9 +2,9 @@ import './style.css';
 import React from 'react';
 import logo from '../assets/img/logo.png';
 import Card from '../Card/Card';
-import Botom from '../Bottom/Bootom';
+import Bottom from '../Bottom/Bottom';
 
-export default function Display() {
+export default function Display({setStart}) {
 
     let deckReact = [   { question: 'O que é JSX?', answer: 'Uma extensão de linguagem do JavaScript' },
                         { question: 'O React é __', answer: 'uma biblioteca JavaScript para construção de interfaces' },
@@ -34,7 +34,7 @@ export default function Display() {
                 )}
             </div>
             
-            <Botom userAnswers={userAnswers} questions={questions}/>
+            <Bottom userAnswers={userAnswers} questions={questions} setStart={setStart}/>
         </div>
     )
 }

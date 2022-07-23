@@ -12,7 +12,7 @@ export default function App () {
         <div className='content'>
             {!start? 
             <Welcome setStart = {setStart}/> :
-            <Display />
+            <Display setStart = {setStart}/>
             }
         </div>
     )
