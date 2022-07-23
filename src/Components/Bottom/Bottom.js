@@ -23,14 +23,11 @@ export default function Bottom({userAnswers, questions, setStart, zapNumber}){
 
     function isGood() {
         let numRed = 0;
-        let numYellow = 0;
         let numGreen = 0;
 
         for (let i = 0; i < userAnswers.length; i++){
             if (userAnswers[i] === 'red'){
                 numRed++
-            } else if (userAnswers[i] === 'yellow'){
-                numYellow++
             } else if (userAnswers[i] === 'green'){
                 numGreen++
             }
